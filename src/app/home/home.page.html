@@ -1,12 +1,21 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>
-      Ionic Blank
+      Ionic4 PWA Camera
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs">docs</a> will be your guide.</p>
+  <h2>「カメラで撮影」または「ギャラリーの画像を利用」</h2>
+
+  <ion-button (click)="openPWAPhotoPicker()">Let's go!</ion-button>
+
+  <div *ngIf="imgURI != null">
+    <img [src]="imgURI" #imgSrc style="width: 200px;">
+  </div>
+
+  <div id="pwa">
+    <input type="file" id="pwaphoto" #pwaphoto accept="image/x-png,imge/jpeg" (change)="uploadPWA()">
+  </div>
 </ion-content>
